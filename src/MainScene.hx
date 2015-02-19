@@ -11,24 +11,20 @@ class MainScene extends Sprite
 	public function new() 
 	{
 		super();
-		
-		addEventListener(Event.ADDED_TO_STAGE, added);
+		addEventListener(Event.ADDED_TO_STAGE, init);
 	}
 	
-	private function added(e:Event):Void
+	private function init(e:Event):Void
 	{
-		removeEventListener(Event.ADDED_TO_STAGE, added);
+		removeEventListener(Event.ADDED_TO_STAGE, init);
 		
 		_menuBar = new MenuBar();
-		
 		_menuBar.Text = "Haxe Game Edit";
 		_menuBar.x = 0;
 		_menuBar.y = 0;
-		_menuBar.width = stage.stageWidth;
-		_menuBar.height = 48;
 		
 		addChild(_menuBar);
-		trace("Main Scene children: " + numChildren);
+		//trace("Main Scene children: " + numChildren);
 	}
 	
 }

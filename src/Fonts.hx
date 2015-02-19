@@ -6,10 +6,10 @@ import openfl.text.Font;
 import openfl.Assets;
 
 #if js
-@:font("a/font/main.ttf") class DefaultFont extends Font { }
-@:font("a/font/main-bold.ttf") class BoldFont extends Font { }
-@:font("a/font/main-bolditalic.ttf") class BoldItalicFont extends Font { }
-@:font("a/font/main-italic.ttf") class ItalicFont extends Font { }
+@:font("font/main.ttf") class DefaultFont extends Font { }
+@:font("font/main-bold.ttf") class BoldFont extends Font { }
+@:font("font/main-bolditalic.ttf") class BoldItalicFont extends Font { }
+@:font("font/main-italic.ttf") class ItalicFont extends Font { }
 #end
 
 class Fonts
@@ -22,7 +22,7 @@ class Fonts
 	private static function get__defaultFont()
 	{
 		if (_defaultFont == null)
-			_defaultFont = Assets.getFont("a/font/main.ttf");	
+			_defaultFont = Assets.getFont("font/main.ttf");	
 		
 		return _defaultFont;
 	}
@@ -30,7 +30,7 @@ class Fonts
 	private static function get__boldFont()
 	{
 		if (_boldFont == null)
-			_boldFont = Assets.getFont("a/font/main-bold.ttf");
+			_boldFont = Assets.getFont("font/main-bold.ttf");
 			
 		return _boldFont;
 	}
@@ -38,7 +38,7 @@ class Fonts
 	private static function get__boldItalicFont()
 	{
 		if (_boldItalicFont == null)
-			_boldItalicFont = Assets.getFont("a/font/main-bolditalic.ttf");
+			_boldItalicFont = Assets.getFont("font/main-bolditalic.ttf");
 			
 		return _boldItalicFont;
 	}
@@ -46,7 +46,7 @@ class Fonts
 	private static function get__italicFont()
 	{
 		if (_italicFont == null)
-			_italicFont = Assets.getFont("a/font/main-italic.ttf");
+			_italicFont = Assets.getFont("font/main-italic.ttf");
 			
 		return _italicFont;
 	}
@@ -96,7 +96,7 @@ class Fonts
 		}
 		return format;
 	}
-	#else if sys
+	#elseif sys
 	public static function GetFormat(?title:String, ?size:Float, ?color:UInt, ?underline:Bool, ?align:String):TextFormat
 	{
 		var format:TextFormat = null;
