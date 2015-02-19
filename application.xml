@@ -2,16 +2,19 @@
 <project>
 	<!-- NMML reference: https://gist.github.com/1763850 -->
 	
-	<!-- metadata, make sure 'package' is at least 3 segments (ie. com.mycompany.myproject) -->
-	<meta title="Haxe Game Edit" package="HaxeGameEdit" version="1.0.0" company="Colour Multimedia Enterprises" />
+	<!-- metadata, make sure 'package' is AT LEAST 3 SEGMENTS (ie. com.mycompany.myproject) -->
+	<meta title="Haxe Game Edit" package="com.colour-multimedia-enterprises.HaxeGameEdit" version="1.0.0" company="Colour Multimedia Enterprises" />
 	
 	<!-- output -->
 	<app main="Main" file="HaxeGameEdit" path="bin" />
-	
-	<window background="#000000" fps="60" />
+
+	<window fps="60" background="0x333333" />
 	<window width="800" height="480" unless="mobile" />
-	<window orientation="landscape" vsync="false" antialiasing="0" if="cpp" />
-	
+	<window fullscreen="true" if="mobile" />
+	<window orientation="landscape" />
+	<window vsync="true" antialiasing="0" if="cpp" />
+	<window hardware="true" allow-shaders="true" require-shaders="true" if="cpp"/>
+
 	<!-- classpath, haxe libs -->
 	<source path="src" />
 	<haxelib name="openfl" />
@@ -21,7 +24,10 @@
 	
 	<!-- assets -->
 	<icon path="assets/openfl.svg" />
-	<assets path="assets" rename="a" />
+	<assets path="assets/img" rename="img" include="*.png|*.jpg" />
+	<assets path="assets/audio" rename="audio" include="*.mp3" if="flash" />
+	<assets path="assets/audio" rename="audio" include="*.wav|*.ogg" unless="flash" />
+	<assets path="assets/font" rename="font" include="*.ttf" /> 
 	
 	<!-- optimize output
 	<haxeflag name="-dce full" /> -->
